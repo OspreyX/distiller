@@ -1,0 +1,33 @@
+{
+  "name": "distiller",
+  "version": "0.0.0",
+  "description": "detect and normalize geodata",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mapbox/distiller.git"
+  },
+  "keywords": [
+    "geographic",
+    "data",
+    "shapefile",
+    "geojson",
+    "convert"
+  ],
+  "author": "Tom MacWright",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mapbox/distiller/issues"
+  },
+  "homepage": "https://github.com/mapbox/distiller",
+  "dependencies": {
+    "mapnik": "~1.4.10",
+    "mapnik-omnivore": "~1.1.2"
+  },
+  "devDependencies": {
+    "tape": "~2.13.3"
+  }
+}
