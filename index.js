@@ -6,10 +6,12 @@ module.exports.geojson = function(filename, callback) {
 
     function ondigest(err, meta) {
         if (err) return callback(err);
-        var ds = new mapnik.Datasource({
+        var ds = {
             type: meta.dstype,
             file: filename
-        });
+        };
+        if (meta.filetype === '.geo.json') ds.layer_by_index = 0;
+        ds = new mapnik.Datasource(ds);
         var geojson = featuresetToGeoJSON(ds.featureset());
         callback(null, geojson);
     }
