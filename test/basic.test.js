@@ -1,5 +1,7 @@
 var test = require('tape'),
-    distiller = require('../');
+    distiller = require('../'),
+    path = require('path'),
+    testData = path.dirname(require.resolve('mapnik-test-data'));
 
 test('fail: does not exist', function(t) {
     distiller.geojson('does-not-exist', function(err, res) {
@@ -20,7 +22,7 @@ test('fail: bad type', function(t) {
 });
 
 test('succeed: csv', function(t) {
-    distiller.geojson(__dirname + '/fixture/csv/valid_csv.csv', function(err, res) {
+    distiller.geojson(testData + '/data/csv/bbl_current_csv.csv', function(err, res) {
         t.notOk(err, 'no error');
         t.ok(res, 'creates a result');
         t.equal(res.type, 'FeatureCollection', 'creates a featurecollection');
@@ -29,7 +31,7 @@ test('succeed: csv', function(t) {
 });
 
 test('succeed: shp', function(t) {
-    distiller.geojson(__dirname + '/fixture/shp/world_merc.shp', function(err, res) {
+    distiller.geojson(testData + '/data/shp/world_merc/world_merc.shp', function(err, res) {
         t.notOk(err, 'no error');
         t.ok(res, 'creates a result');
         t.equal(res.type, 'FeatureCollection', 'creates a featurecollection');
@@ -38,7 +40,7 @@ test('succeed: shp', function(t) {
 });
 
 test('succeed: geojson', function(t) {
-    distiller.geojson(__dirname + '/fixture/geojson/valid_geojson.geo.json', function(err, res) {
+    distiller.geojson(testData + '/data/geojson/places.geo.json', function(err, res) {
         t.notOk(err, 'no error');
         t.ok(res, 'creates a result');
         t.equal(res.type, 'FeatureCollection', 'creates a featurecollection');
