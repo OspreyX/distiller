@@ -47,3 +47,12 @@ test('succeed: geojson', function(t) {
         t.end();
     });
 });
+
+test('succeed: kml', function(t) {
+    distiller.geojson(testData + '/data/kml/1week_earthquake.kml', function(err, res) {
+        t.notOk(err, 'no error');
+        t.ok(res, 'creates a result');
+        t.equal(res.type, 'FeatureCollection', 'creates a featurecollection');
+        t.end();
+    });
+});
