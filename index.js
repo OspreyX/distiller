@@ -17,7 +17,8 @@ module.exports.geojson = function(filename, callback) {
         };
 
         if (meta.filetype === '.geo.json') ds.layer_by_index = 0;
-        if (meta.filetype === '.kml') {
+        if (meta.filetype === '.kml' ||
+            meta.filetype === '.gpx') {
                 geojson.features = [];
                 meta.layers.forEach(function(layer) {
                     ds.layer = layer;

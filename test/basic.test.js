@@ -56,3 +56,12 @@ test('succeed: kml', function(t) {
         t.end();
     });
 });
+
+test('succeed: gpx', function(t) {
+    distiller.geojson(testData + '/data/gpx/fells_loop.gpx', function(err, res) {
+        t.notOk(err, 'no error');
+        t.ok(res, 'creates a result');
+        t.equal(res.type, 'FeatureCollection', 'creates a featurecollection');
+        t.end();
+    });
+});
