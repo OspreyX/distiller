@@ -25,10 +25,13 @@
   "homepage": "https://github.com/mapbox/distiller",
   "dependencies": {
     "mapnik": "~1.4.10",
-    "mapnik-omnivore": "~1.1.2"
+    "mapnik-omnivore": "~1.1.2",
+    "zipfile": "^0.5.2",
+    "mkdirp": "^0.5.0",
+    "rimraf": "^2.2.8"
   },
   "devDependencies": {
     "tape": "~2.13.3",
-    "mapnik-test-data":"http://mapbox-npm.s3.amazonaws.com/package/mapnik-test-data-2.0.1-98e4e5f4d94979576d4fff22c8e447a3a5048302.tgz"
+    "mapnik-test-data": "http://mapbox-npm.s3.amazonaws.com/package/mapnik-test-data-2.0.1-98e4e5f4d94979576d4fff22c8e447a3a5048302.tgz"
   }
 }

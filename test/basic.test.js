@@ -65,3 +65,12 @@ test('succeed: gpx', function(t) {
         t.end();
     });
 });
+
+test('succeed: zipped shapefile', function(t) {
+    distiller.geojson(testData + '/data/zip/shapefile.zip', function(err, res) {
+        t.notOk(err, 'no error');
+        t.ok(res, 'creates a result');
+        t.equal(res.type, 'FeatureCollection', 'creates a featurecollection');
+        t.end();
+    });
+});

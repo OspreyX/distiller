@@ -1,7 +1,21 @@
-var omnivore = require('mapnik-omnivore'),
-    mapnik = require('mapnik');
+var fs = require('fs'),
+    rmdir = require('rimraf'),
+    omnivore = require('mapnik-omnivore'),
+    mapnik = require('mapnik'),
+    shpzip = require('./lib/shpzip');
 
 module.exports.geojson = function(filename, callback) {
+    if (filename.indexOf('.zip') !== -1) {
+        return shpzip.extract(filename, function(err, dir, file) {
+            if (err) return err;
+            module.exports.geojson(file, function(err, geojson) {
+                rmdir(dir, function() {
+                    callback(err, geojson);
+                });
+            });
+        });
+    }
+
     omnivore.digest(filename, ondigest);
 
     function ondigest(err, meta) {
