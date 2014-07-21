@@ -7,7 +7,7 @@ var fs = require('fs'),
 module.exports.geojson = function(filename, callback) {
     if (filename.indexOf('.zip') !== -1) {
         return shpzip.extract(filename, function(err, dir, file) {
-            if (err) return err;
+            if (err) return callback(err);
             module.exports.geojson(file, function(err, geojson) {
                 rmdir(dir, function() {
                     callback(err, geojson);
