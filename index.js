@@ -8,7 +8,7 @@ module.exports.geojson = function(filename, callback) {
     if (filename.toLowerCase().indexOf('.zip') !== -1) {
         return shpzip.extract(filename, function(err, dir, file) {
             if (err) return callback(err);
-            module.exports.geojson(file, function(err, geojson) {
+            module.exports.geojson(file + '.shp', function(err, geojson) {
                 rmdir(dir, function() {
                     callback(err, geojson);
                 });
