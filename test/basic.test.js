@@ -67,7 +67,7 @@ test('succeed: gpx', function(t) {
 });
 
 test('succeed: zipped shapefile', function(t) {
-    distiller.geojson(testData + '/data/zip/shapefile.zip', function(err, res) {
+    distiller.geojson(testData + '/data/zip/us_states.zip', function(err, res) {
         t.notOk(err, 'no error');
         t.ok(res, 'creates a result');
         t.equal(res.type, 'FeatureCollection', 'creates a featurecollection');
