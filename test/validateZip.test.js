@@ -1,5 +1,5 @@
 var test = require('tape'),
-    validateZip = require('../lib/validateZip.js');
+    validateZip = require('../lib/validatezip.js');
 
 var errorTests = {
     '0': {
